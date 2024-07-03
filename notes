@@ -1,0 +1,26 @@
+-- Departments Table
+CREATE TABLE departments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+-- Insert dummy data into Departments
+INSERT INTO departments (name) VALUES ('HR'), ('IT'), ('Graphics');
+
+-- Employees Table with user-provided Employee ID
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_id VARCHAR(50) NOT NULL UNIQUE,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES departments(id)
+);
+
+-- Insert dummy data into Employees
+INSERT INTO employees (employee_id, first_name, last_name, department_id) VALUES
+('E001', 'Anita', 'Patil', 3),
+('E002', 'Nilesh', 'Gore', 2),
+('E003', 'Shruti', 'Kale', 1),
+('E004', 'Raj', 'Hande', 3);
+
